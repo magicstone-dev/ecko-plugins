@@ -23,8 +23,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Ecko plugins
-      run: cd ecko-plugins
     - name: Set up Ruby
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
@@ -34,4 +32,4 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
-      run: bundle exec rake
+      run: cd ecko-plugins && bundle exec rspec
