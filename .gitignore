@@ -1,0 +1,22 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+# Ignore Vagrant files
+.vagrant/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# rspec failure tracking
+.rspec_status
+
+# Ignore bundler config and downloaded libraries.
+/.bundle
+/vendor/bundle
