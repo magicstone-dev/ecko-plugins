@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # spec.add_development_dependency 'bundler', '~> 1.17'
+  spec.add_dependency 'rails', '>= 6.1.4'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   # spec.add_dependency 'stripe', '~> 5.39'
