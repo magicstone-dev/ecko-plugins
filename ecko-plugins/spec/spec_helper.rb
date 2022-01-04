@@ -1,5 +1,13 @@
-require "bundler/setup"
-require "ecko/plugins"
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter '/spec/'
+  minimum_coverage 90
+end
+
+require 'bundler/setup'
+require 'ecko/plugins'
+require 'specor/specor'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
