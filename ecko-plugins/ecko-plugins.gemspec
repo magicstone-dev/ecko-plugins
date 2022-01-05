@@ -11,17 +11,17 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Adds plugins functionality to mastadon as a whole'
   spec.description   = 'We can register to plugins through the registry provided by ecko plugins'
-  spec.homepage      = 'https://github.com/magicstone-dev/ecko'
+  spec.homepage      = 'https://rubygems.org/ecko-plugins'
   spec.license       = 'GPL/AGPL'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = 'https://github.com/magicstone-dev/ecko'
+    spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
     spec.metadata['homepage_uri'] = spec.homepage
-    spec.metadata['source_code_uri'] = 'https://github.com/magicstone-dev/ecko'
-    spec.metadata['changelog_uri'] = 'https://github.com/magicstone-dev/ecko'
+    spec.metadata['source_code_uri'] = spec.homepage
+    spec.metadata['changelog_uri'] = spec.homepage
   else
     raise 'RubyGems 2.0 or newer is required to protect against ' \
       'public gem pushes.'
