@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Manish Sharma']
   spec.email         = ['arnoltherasing@gmail.com']
 
-  spec.summary       = 'Adds plugins functionality to mastadon as a whole'
-  spec.description   = 'We can register to plugins through the registry provided by ecko plugins'
+  spec.summary       = 'Adds plugin functionality to Ecko and other Mastodon-based servers'
+  spec.description   = 'We can register plugins through the registry provided by Ecko-plugins'
   spec.homepage      = 'https://rubygems.org/ecko-plugins'
   spec.license       = 'GPL/AGPL'
 
