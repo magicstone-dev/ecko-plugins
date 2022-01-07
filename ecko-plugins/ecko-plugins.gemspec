@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Adds plugin functionality to Ecko and other Mastodon-based servers'
   spec.description   = 'We can register plugins through the registry provided by Ecko-plugins'
-  spec.homepage      = 'https://rubygems.org/ecko-plugins'
+  spec.homepage      = 'https://github.com/magicstone-dev/ecko-plugins/tree/main/ecko-plugins'
   spec.license       = 'GPL/AGPL'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
