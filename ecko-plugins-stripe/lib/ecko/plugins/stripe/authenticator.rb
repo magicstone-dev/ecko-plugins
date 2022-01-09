@@ -4,6 +4,7 @@ require 'ecko/plugins/stripe/configurations'
 module Ecko
   module Plugins
     module Stripe
+      # Base class with
       class Authenticator
         attr_reader :params
 
@@ -21,6 +22,7 @@ module Ecko
         end
 
         class << self
+          # Hits the run instance method.
           def execute(params)
             new(params).run
           end

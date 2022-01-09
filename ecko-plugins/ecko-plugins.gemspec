@@ -12,7 +12,8 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Adds plugin functionality to Ecko and other Mastodon-based servers'
   spec.description   = 'We can register plugins through the registry provided by Ecko-plugins'
   spec.homepage      = 'https://github.com/magicstone-dev/ecko-plugins/tree/main/ecko-plugins'
-  spec.license       = 'GPL/AGPL'
+  spec.license       = 'GPL-3.0+'
+  spec.files         = Dir['lib/**/*.rb'].to_a
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -38,9 +39,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  # spec.add_development_dependency 'bundler', '~> 1.17'
-  spec.add_dependency 'rails', '>= 6.1.4', '< 7.0.0'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  # spec.add_dependency 'stripe', '~> 5.39'
 end

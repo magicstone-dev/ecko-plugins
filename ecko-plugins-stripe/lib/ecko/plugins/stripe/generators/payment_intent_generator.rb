@@ -30,7 +30,6 @@ if defined?(Rails::Generators::Base)
 
           def create_migration
             template 'create_payment_intent_template.rb', "db/migrate/#{timestamp}_create_payable_intent.rb"
-            template 'payment_intent_record.rb', 'app/models/stripe_payment_intent.rb'
           end
 
           private

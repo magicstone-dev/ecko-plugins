@@ -31,5 +31,7 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Run tests
+    - name: Run ecko-plugins test
+      run: cd ecko-plugins && bundle install && bundle exec rspec
+    - name: Run Stripe plugin test
       run: cd ecko-plugins && bundle install && bundle exec rspec

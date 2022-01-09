@@ -2,6 +2,7 @@ module Ecko
   module Plugins
     class StripeCallbacksController < 'ApplicationController'.constantize
 
+      # This can be used to extend and run the payment success.
       def success
         raise Ecko::Plugins::Stripe::InvalidPaymentIntent if intent.nil?
 
