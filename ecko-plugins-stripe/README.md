@@ -1,8 +1,8 @@
 # Ecko::Plugins::Stripe
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ecko/plugins/stripe`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem helps in interacting and setting stripe to help in running stripe based functionalities in
+mastodon. The gem is developed under the ecko plugins flagship where all these plugins development
+started.
 
 ## Installation
 
@@ -14,25 +14,49 @@ gem 'ecko-plugins-stripe'
 
 And then execute:
 
-    $ bundle install
+ $ bundle install
 
 Or install it yourself as:
 
     $ gem install ecko-plugins-stripe
 
 ## Usage
+We can generate payment intent model and migration for intent by
+rails generate ecko:plugins:stripe:payment_intention
 
-TODO: Write usage instructions here
+
+We can do a checkout by
+```ruby
+ Ecko::Plugins.stripe.checkout(
+		{
+				submit_type: 'donate',
+				success_message: 'Thanks for being part of our community, Your donation was well received', # Need to add translation options,
+				callback: 'Ecko::Plugins::Sponsor::Donated',
+				metadata: metadata,
+				payable_type: account.class.name,
+				payable_id: account.id,
+				line_items: [
+						{
+								quantity: 1,
+								amount: 100,
+								name: "Demo Payment",
+								description: 'Demo for the instance',
+						}
+				]
+		}
+)
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+We can extend this gem by adding multiple functionalities of stripe. We currently have the checkout feature which helps
+in payment process. The gem also helps in setting up a payment intent structure which works as the model for the intent
+of payment.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ecko-plugins-stripe. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/ecko-plugins-stripe/blob/master/CODE_OF_CONDUCT.md).
+We're following a protocol called the Collective Code Construction Contract (C4) that says if you are addressing a valid problem, your code gets merged. Everything else follows from that.
+Bug reports and pull requests are welcome on GitHub at https://github.com/magicstone-dev/ecko-plugins. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

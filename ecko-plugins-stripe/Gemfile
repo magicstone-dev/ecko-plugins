@@ -5,6 +5,14 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in ecko-plugins-stripe.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
 
+group :test do
+  gem 'pry'
+  gem 'database_cleaner'
+  gem 'factory_bot'
+  gem 'faker', '~> 1.9.1'
+  gem 'simplecov'
+end
+
+gem "rake", "~> 13.0"
 gem "rspec", "~> 3.0"

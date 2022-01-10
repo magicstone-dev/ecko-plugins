@@ -1,25 +1,28 @@
 require "ecko/plugins/version"
-require 'rails'
 
 module Ecko
   module Plugins
+    # Set a registry variable to help cache all the registries
+    @@registry = {}
+
     class Error < StandardError; end
 
     class PluginPresentError < StandardError; end
 
     class Registry; end
 
-    # Set a registry variable to help cache all the registries
-    mattr_accessor :registry, default: {}
-
     class << self
+      def registry
+        @@registry
+      end
+
       # Registers a new plugin, A plugin with the same name cannot be registered twice
       # That will raise Ecko::Plugins::PluginPresentError if a plugin is already registered.
       # name: Name of the plugin in snail case
       # schema: hash/object or any data structure which defines the plugin
       # engine: It is a class which exposes a configure class definition(method)
       def register(name:, schema:, engine:)
-        raise Ecko::Plugins::PluginPresentError if Ecko::Plugins.registry[name].present?
+        raise Ecko::Plugins::PluginPresentError unless Ecko::Plugins.registry[name].nil?
 
         # This helps set a new reference class which will be used as a pristine class. It doesnt have a big
         # role currently but will serve a great deal of purpose in the future.

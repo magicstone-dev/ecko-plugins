@@ -12,6 +12,6 @@ RSpec.describe Ecko::Plugins do
 
     expect(Ecko::Plugins.demo).to eq Ecko::Plugins::Registry::Demo
     expect(Ecko::Plugins.demo.configured_data).to eq 'Configured'
-    expect(Ecko::Plugins.registry['demo']).to be_present
+    expect(Ecko::Plugins.registry['demo']).not_to be_nil
   end
 end

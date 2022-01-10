@@ -2,14 +2,15 @@
 
 require_relative "stripe/version"
 require 'stripe'
+require 'rails'
 require 'ecko/plugins/stripe/engine'
 require 'ecko/plugins/stripe/generators/payment_intent_generator'
 require 'ecko/plugins/stripe/rails'
+require 'ecko/plugins'
 
 module Ecko
   module Plugins
     module Stripe
-
       class ExecutionError < StandardError; end
 
       # This error will be thrown when line items are not provided
@@ -29,6 +30,7 @@ module Ecko
       class InvalidPaymentIntent < StandardError; end
 
       class << self
+        # This is the initializer for tp register the plugin to the ecko plugin registry
         def register(schema)
           Ecko::Plugins.register(name: 'stripe', schema: schema, engine: Ecko::Plugins::Stripe::Engine)
         end
@@ -36,3 +38,5 @@ module Ecko
     end
   end
 end
+
+autoload(:StripePaymentIntent, 'ecko/plugins/stripe/payment_intent')
