@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 require_relative 'sponsor/version'
+require 'rails'
+require 'ecko/plugins'
 require_relative 'sponsor/engine'
 
 module Ecko
   module Plugins
     module Sponsor
+      autoload(:Donated, 'ecko/plugins/sponsor/donated')
+
       class Error < StandardError; end
       @@gateways = []
 
@@ -17,9 +21,12 @@ module Ecko
           @@gateways << checkout
         end
 
+        # We can get all the available gateways that we can use to donate.
         def available_gateways
           return { run: 'default', default: @@gateways.first } if @@gateways.length == 1
 
+          # The choice runner will help in setting up a UI for the users to
+          # choose which gateway do they prefer.
           { run: 'choice', choices: @@gateways }
         end
 
@@ -31,5 +38,3 @@ module Ecko
     end
   end
 end
-
-require 'ecko/plugins/sponsor/donated'
