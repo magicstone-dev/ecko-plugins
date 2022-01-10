@@ -24,6 +24,8 @@ module Ecko
 
         class GatewayValidator < Base
 
+          # Validate all the gateway schema which helps in providing correct structure for the gateways
+          # that is used for donation
           def validate
             # Validate name
             raise InvalidGatewayName if schema[:name].nil?
